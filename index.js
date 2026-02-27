@@ -91,6 +91,7 @@ console.log(CemberinAlani(15, pi));
 */
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
+console.log("sayilar uzunluğu:", sayilar.length);
 
 let ucetambolunenler,
   enkucuk,
@@ -102,21 +103,59 @@ let ucetambolunenler,
 
 // 3a çözümü
 
+enkucuk = sayilar[0];
+enbuyuk = sayilar[0];
+
+for (let i = 1; i < sayilar.length; i++) {
+  if (sayilar[i] < enkucuk) enkucuk = sayilar[i];
+  if (sayilar[i] > enbuyuk) enbuyuk = sayilar[i];
+}
 
 // 3b çözümü:
+
+ucetambolunenler = [];
+sayilar.forEach((s) => {
+  if (s % 3 === 0) {
+    ucetambolunenler.push(s);
+  }
+});
 
 
 // 3c çözümü:
 
+ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, s) => toplam + s, 0);
 
 // 3d çözümü
 
+besyuzdenkucuksayilar = sayilar.filter((s) => s < 500);
 
 // 3e çözümü
 
-
+siralisayilar = [...besyuzdenkucuksayilar].sort((a, b) => a - b);
 
 // 3f çözümü
+
+tekraredensayilar = [];
+
+const sayac = {};
+
+for (let i = 0; i < sayilar.length; i++) {
+  const deger = sayilar[i];
+
+  if (sayac[deger]) {
+    sayac[deger]++;
+  } else {
+    sayac[deger] = 1;
+  }
+}
+
+for (let sayi in sayac) {
+  if (sayac[sayi] > 1) {
+    tekraredensayilar.push(
+      `${sayi} sayısı ${sayac[sayi]} kere tekrar edilmiştir`
+    );
+  }
+}
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
